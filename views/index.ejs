@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Index Page</h1>
+
+    <form action="/addDoc" method="post">
+        <input type="text" placeholder="First Name" name="txt">
+        <input type="password" placeholder="Password" name="pass">
+        <input type="submit">
+    </form>
+
+
+    <table width="1120px" align="center" border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Password</th>
+            <th>Action</th>
+        </tr>
+
+        <% data.map((d)=>{ %>
+            <tr>
+                <td>
+                    <%= d.id %>
+                </td>
+                <td>
+                    <%= d.txt %>
+                </td>
+                <td>
+                    <%= d.pass %>
+                </td>
+                <td>
+                    <a href="\editData\<%= d.id %>">
+                        Edit
+                    </a>
+                     || 
+                <a href="\deleted\<%= d.id %>">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        <% }); %>
+    </table>
+
+</body>
+</html>
